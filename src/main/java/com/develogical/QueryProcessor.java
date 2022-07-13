@@ -10,7 +10,7 @@ public class QueryProcessor {
                     "English poet, playwright, and actor, widely regarded as the greatest " +
                     "writer in the English language and the world's pre-eminent dramatist.";
         }
-        if(query.toLowerCase().contains("plus")){
+        if(query.toLowerCase().contains("largest")){
             String[] s=query.split("largest:");
             s=s[1].split(",");
             for(String t:s){
@@ -22,9 +22,13 @@ public class QueryProcessor {
             }
             return max+"";
         }
-        if(query.toLowerCase().contains("largest")){
+        if(query.toLowerCase().contains("plus")){
             String[] s=query.split(" ");
             return Integer.max(parseInt(s[s.length-1]), parseInt(s[s.length-2]))+"";
+        }
+        if(query.toLowerCase().contains("multiplied")){
+            String[] s=query.split(" ");
+            return (Integer.parseInt(s[s.length-1])*Integer.parseInt(s[s.length-4]))+"";
         }
         return "";
     }
