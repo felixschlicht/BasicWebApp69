@@ -1,5 +1,7 @@
 package com.develogical;
 
+import static java.lang.Integer.parseInt;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -9,11 +11,20 @@ public class QueryProcessor {
                     "writer in the English language and the world's pre-eminent dramatist.";
         }
         if(query.toLowerCase().contains("plus")){
-            String[] s=query.split(" ");
-            return (Integer.parseInt(s[s.length-1])+Integer.parseInt(s[s.length-3]))+"";
+            String[] s=query.split("largest:");
+            s=s[1].split(",");
+            for(String t:s){
+                t=t.trim();
+            }
+            int max=Integer.MIN_VALUE;
+            for(String t:s){
+                max=Math.max(parseInt(t),max);
+            }
+            return max+"";
         }
         if(query.toLowerCase().contains("largest")){
-
+            String[] s=query.split(" ");
+            return Integer.max(parseInt(s[s.length-1]), parseInt(s[s.length-2]))+"";
         }
         return "";
     }
