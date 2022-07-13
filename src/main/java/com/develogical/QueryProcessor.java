@@ -9,6 +9,8 @@ public class QueryProcessor {
                     "writer in the English language and the world's pre-eminent dramatist.";
         } if (query.toLowerCase().contains("name")) {
             return "Robert";
+        } if (query.toLowerCase().contains("irgendwas69")){
+            return "Felix";
         }
         return "";
     }
